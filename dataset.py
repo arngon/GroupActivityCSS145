@@ -134,13 +134,14 @@ ax.set_ylabel('Price (Euro)')
 ax.set_title('Bubble Chart: CPU Frequency vs Price (Bubble Size = RAM)')
 st.pyplot(fig)
 
+
 # Tree Map
 st.subheader("Treemap: Total Laptop Prices by Company")
-company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
-fig, ax = plt.subplots()
-squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
-st.pyplot(plt)
-plt.clf()
+#company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
+#fig, ax = plt.subplots()
+#squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
+#st.pyplot(plt)
+#plt.clf()
 
 
 def treemap():
@@ -151,7 +152,7 @@ def treemap():
     # alpha=0.7 - controls the transparency of the rectangles
     # 0 is fully transparent and 1 is opaque
     # plt.axis('off') - hides the x and y axis of the plot
-    squarify.plot(sizes=values, label=categories, color=['red', 'green', 'blue', 'orange'], alpha=0.7)
+    squarify.plot(sizes=company_prices, label=company_prices, color=['red', 'green', 'blue', 'orange'], alpha=0.7)
     plt.title('Treemap Example')
     plt.axis('off')
     st.pyplot(plt)
