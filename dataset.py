@@ -138,24 +138,28 @@ st.pyplot(fig)
 
 # Tree Map
 st.subheader("Treemap: Total Laptop Prices by Company")
-#fig, ax = plt.subplots()
-#squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
-#st.pyplot(plt)
-#plt.clf()
+company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
+fig, ax = plt.subplots()
+squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
+st.pyplot(plt)
+plt.clf()
 
+# Violin Plot
+st.subheader("Violin Plot: Laptop Prices by Company")
+fig, ax = plt.subplots(figsize=(12, 6))
+sns.violinplot(x='Company', y='Price (Euro)', data=df, hue='Company', palette='Set2', inner='quartile')
+ax.set_xlabel('Company')
+ax.set_ylabel('Price (Euro)')
+ax.set_title('Violin Plot: Laptop Prices by Company')
+ax.tick_params(axis='x', labelrotation=45)
+st.pyplot(fig)
 
-def treemap():
-    # squarify.plot(...) - used to create the treemap
-    # sizes=values - assigns the values data to determine the sizes of rectangles in the treemap
-    # label=categories - assigns the labels to the rectangles
-    # color - defines the color of the rectangles
-    # alpha=0.7 - controls the transparency of the rectangles
-    # 0 is fully transparent and 1 is opaque
-    # plt.axis('off') - hides the x and y axis of the plot
-    company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
-    squarify.plot(sizes=company_prices, label=company_prices, color=['red', 'green', 'blue', 'orange'], alpha=0.7)
-    plt.title('Treemap Example')
-    plt.axis('off')
-    st.pyplot(plt)
-    plt.clf()
-treemap()
+# Word Cloud
+st.subheader("Word Cloud: Laptop Products")
+text_data = ' '.join(df['Product'].dropna().tolist())
+wordcloud = WordCloud(width=800, height=400, background_color='white', colormap='Set2').generate(text_data)
+fig, ax = plt.subplots(figsize=(10, 5))
+ax.imshow(wordcloud, interpolation='bilinear')
+ax.axis('off')  # Turn off the axis
+ax.set_title('Word Cloud: Laptop Products')
+st.pyplot(fig)
