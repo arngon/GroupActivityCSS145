@@ -75,7 +75,7 @@ ax.set_title('Weight and Price')
 st.pyplot(fig)
 
 # Pie Chart
-st.subheader("Product and Product Count")
+st.subheader("Pie Chart")
 Product = df.Product.value_counts().reset_index(name='Product_count').iloc[:20]
 fig = px.pie(
     data_frame=Product,
@@ -88,7 +88,7 @@ fig.update_traces(textposition='inside', textinfo='label+value')
 st.plotly_chart(fig)
 
 # Bar
-st.subheader("TypeName of Laptops")
+st.subheader("Bar Graph")
 fig, ax = plt.subplots()
 df.groupby('TypeName').size().plot(kind='barh', ax=ax, color=sns.palettes.mpl_palette('Dark2'))
 ax.spines[['top', 'right',]].set_visible(False)
@@ -96,7 +96,7 @@ ax.set_xlabel('Frequency')
 st.pyplot(fig)
 
 # Histogram
-st.subheader("Weight (kg)")
+st.subheader("Histogram")
 fig, ax = plt.subplots()
 df['Weight (kg)'].plot(kind='hist', bins=20, edgecolor='black', ax=ax)
 ax.spines[['top', 'right',]].set_visible(False)
@@ -106,7 +106,7 @@ ax.set_title('Weight (kg)')
 st.pyplot(fig)
 
 # Line
-st.subheader("RAM (GB)")
+st.subheader("Line Graph")
 fig, ax = plt.subplots()
 df['RAM (GB)'].plot(kind='line', ax=ax)
 ax.spines[['top', 'right']].set_visible(False)
@@ -116,7 +116,7 @@ ax.set_title('RAM (GB)')
 st.pyplot(fig)
 
 # Candle Stick
-st.subheader("Distribution of Laptop Prices by Company")
+st.subheader("Candle Stick")
 fig, ax = plt.subplots()
 df.boxplot(column='Price (Euro)', by='Company', ax=ax, figsize=(12, 6), rot=45)
 ax.set_xlabel('Company')
@@ -125,7 +125,7 @@ ax.set_title('Distribution of Laptop Prices by Company')
 st.pyplot(fig)
 
 # Bubble Chart
-st.subheader("Bubble Chart: CPU Frequency vs Price (Bubble Size = RAM)")
+st.subheader("Bubble Chart")
 fig, ax = plt.subplots()
 ax.scatter(df['CPU_Frequency (GHz)'], df['Price (Euro)'], s=df['RAM (GB)'] * 20, alpha=0.5, c='blue')
 ax.set_xlabel('CPU Frequency (GHz)')
@@ -135,7 +135,7 @@ st.pyplot(fig)
 
 
 # Tree Map
-st.subheader("Treemap: Total Laptop Prices by Company")
+st.subheader("Treemap")
 company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
 fig, ax = plt.subplots()
 
@@ -145,7 +145,7 @@ st.pyplot(plt)
 plt.clf()
 
 # Violin Plot
-st.subheader("Violin Plot: Laptop Prices by Company")
+st.subheader("Violin Plot")
 fig, ax = plt.subplots(figsize=(12, 6))
 sns.violinplot(x='Company', y='Price (Euro)', data=df, hue='Company', palette='Set2', inner='quartile')
 ax.set_xlabel('Company')
@@ -155,7 +155,7 @@ ax.tick_params(axis='x', labelrotation=45)
 st.pyplot(fig)
 
 # Word Cloud
-st.subheader("Word Cloud: Laptop Products")
+st.subheader("Word Cloud")
 text_data = ' '.join(df['Product'].dropna().tolist())
 wordcloud = WordCloud(width=800, height=400, background_color='white', colormap='Set2').generate(text_data)
 fig, ax = plt.subplots(figsize=(10, 5))
@@ -163,3 +163,7 @@ ax.imshow(wordcloud, interpolation='bilinear')
 ax.axis('off')  # Turn off the axis
 ax.set_title('Word Cloud: Laptop Products')
 st.pyplot(fig)
+
+st.subheader("Conclusion")
+
+
