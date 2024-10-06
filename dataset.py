@@ -63,7 +63,7 @@ st.write("There are {} unique brands in the dataset, including:".format(len(bran
 st.write(brand_counts)
 
 # Scatter
-st.subheader("Weight and Price")
+st.subheader("Scatter Plot")
 st.markdown("""
  The Scatter plot here shows the average purchase price and weight of Laptops that are being sold in the market, The average price of a laptop is around 700-2000 euros, and weight around 1.15-2.5KG.
  """)
