@@ -138,24 +138,15 @@ st.pyplot(fig)
 
 # Tree Map
 st.subheader("Treemap: Total Laptop Prices by Company")
-#fig, ax = plt.subplots()
-#squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
-#st.pyplot(plt)
-#plt.clf()
+company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
+
+plt.figure(figsize=(12, 6))
+squarify.plot(sizes=company_prices['Price (Euro)'],
+              label=company_prices['Company'],
+              alpha=0.8,
+              color=plt.cm.Set3.colors)
 
 
-def treemap():
-    # squarify.plot(...) - used to create the treemap
-    # sizes=values - assigns the values data to determine the sizes of rectangles in the treemap
-    # label=categories - assigns the labels to the rectangles
-    # color - defines the color of the rectangles
-    # alpha=0.7 - controls the transparency of the rectangles
-    # 0 is fully transparent and 1 is opaque
-    # plt.axis('off') - hides the x and y axis of the plot
-    company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
-    squarify.plot(sizes=company_prices, label=company_prices, color=['red', 'green', 'blue', 'orange'], alpha=0.7)
-    plt.title('Treemap Example')
-    plt.axis('off')
-    st.pyplot(plt)
-    plt.clf()
-treemap()
+plt.title('Treemap: Total Laptop Prices by Company')
+plt.axis('off')
+plt.show()
