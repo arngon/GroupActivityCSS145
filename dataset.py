@@ -20,15 +20,15 @@ df = pd.read_csv("laptop_price - dataset.csv")
 # Create a Streamlit app
 st.title("Laptop Market Analysis")
 
-st.markdown(""""
+st.markdown("""
 
- Group* 8 - BM4:
+ Group 8 - BM4:
             
-    *   Gonzales, Arnold
-    *   Oalican, Maria Junella May
-    *   Paz, Cedric Anthony
-    *   San Miguel, Ian Rafael
-    *   Zuniga, Danilo Raqui
+     Gonzales, Arnold
+     Oalican, Maria Junella May
+     Paz, Cedric Anthony
+     San Miguel, Ian Rafael
+     Zuniga, Danilo Raqui
             
     Original file is located at
     https://colab.research.google.com/drive/13_qN4ypZnJt61F-fbgDKfVn-hAcp4IqG
