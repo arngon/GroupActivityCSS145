@@ -141,3 +141,18 @@ fig, ax = plt.subplots()
 squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
 st.pyplot(plt)
 plt.clf()
+
+
+def treemap():
+    # squarify.plot(...) - used to create the treemap
+    # sizes=values - assigns the values data to determine the sizes of rectangles in the treemap
+    # label=categories - assigns the labels to the rectangles
+    # color - defines the color of the rectangles
+    # alpha=0.7 - controls the transparency of the rectangles
+    # 0 is fully transparent and 1 is opaque
+    # plt.axis('off') - hides the x and y axis of the plot
+    squarify.plot(sizes=values, label=categories, color=['red', 'green', 'blue', 'orange'], alpha=0.7)
+    plt.title('Treemap Example')
+    plt.axis('off')
+    st.pyplot(plt)
+    plt.clf()
