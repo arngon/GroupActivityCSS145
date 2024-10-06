@@ -16,17 +16,15 @@ Original file is located at
 *   Zuniga, Danilo Raqui
 """
 
-import streamlit as st
-import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
-import seaborn as sns
-import altair as alt
-from wordcloud import WordCloud
-from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import os
 import squarify
-import networkx as nx
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import streamlit as st
+from wordcloud import WordCloud
 from io import StringIO
 
 # Mount Google Drive
