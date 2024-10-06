@@ -64,6 +64,9 @@ st.write(brand_counts)
 
 # Scatter
 st.subheader("Weight and Price")
+st.markdown("""
+ The Scatter plot here shows the average purchase price and weight of Laptops that are being sold in the market, The average price of a laptop is around 700-2000 euros, and weight around 1.15-2.5KG.
+ """)
 fig, ax = plt.subplots()
 ax.scatter(df['Weight (kg)'], df['Price (Euro)'], s=32, alpha=.8)
 ax.spines[['top', 'right',]].set_visible(False)
