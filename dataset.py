@@ -156,3 +156,4 @@ def treemap():
     plt.axis('off')
     st.pyplot(plt)
     plt.clf()
+treemap()
