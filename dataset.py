@@ -40,8 +40,11 @@ st.subheader("Data Table")
 st.write(df.head())
 
 # Info
+buffer = StringIO()
+df.info(buf=buffer)
+df_info_as_string = buffer.getvalue()
 st.subheader("Data Info")
-st.write(df.info())
+st.write(df_info_as_string)
 
 # Describe
 st.subheader("Data Description")
