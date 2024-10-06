@@ -140,7 +140,7 @@ st.pyplot(fig)
 st.subheader("Treemap: Total Laptop Prices by Company")
 company_prices = df.groupby('Company')['Price (Euro)'].sum().reset_index()
 fig, ax = plt.subplots()
-squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
+squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices['Company'],alpha=0.8)
 st.pyplot(plt)
 plt.clf()
 
