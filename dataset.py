@@ -144,6 +144,7 @@ squarify.plot(sizes=company_prices['Price (Euro)'], label=company_prices)
 st.pyplot(plt)
 plt.clf()
 
+
 # Violin Plot
 st.subheader("Violin Plot: Laptop Prices by Company")
 fig, ax = plt.subplots(figsize=(12, 6))
@@ -153,6 +154,7 @@ ax.set_ylabel('Price (Euro)')
 ax.set_title('Violin Plot: Laptop Prices by Company')
 ax.tick_params(axis='x', labelrotation=45)
 st.pyplot(fig)
+
 
 # Word Cloud
 st.subheader("Word Cloud: Laptop Products")
